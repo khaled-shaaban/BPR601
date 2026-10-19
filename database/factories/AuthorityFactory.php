@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Database\Factories;
 
@@ -9,18 +9,16 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class AuthorityFactory extends Factory
 {
     protected $model = Authority::class;
-    
+
     public function definition(): array
     {
-        $area = Area::first();
-        
-        return [    
+        return [
             'name' => fake()->name(),
-            'code' => fake()->unique()->randomNumber(5),
+            'code' => fake()->unique()->word(),
             'description' => fake()->sentence(),
             'icon' => fake()->imageUrl(),
             'color' => fake()->colorName(),
-            'area_id' => $area->id,
+            'area_id' => Area::inRandomOrder()->value('id') ?? Area::factory(),
             'address' => fake()->address(),
             'contact_phone_1' => fake()->phoneNumber(),
             'contact_phone_2' => fake()->phoneNumber(),

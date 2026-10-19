@@ -29,11 +29,15 @@ class PermissionAndRoleSeeder extends Seeder
             ['name' => AppRoles::SUPER_ADMIN->value, 'guard_name' => 'api']
         );  
         Role::updateOrCreate(
-            ['name' => AppRoles::ADMIN->value], 
+            ['name' => AppRoles::ADMIN->value],
             ['name' => AppRoles::ADMIN->value, 'guard_name' => 'api']
         );
         Role::updateOrCreate(
-            ['name' => AppRoles::USER->value], 
+            ['name' => AppRoles::REPRESENTATIVE->value],
+            ['name' => AppRoles::REPRESENTATIVE->value, 'guard_name' => 'api']
+        );
+        Role::updateOrCreate(
+            ['name' => AppRoles::USER->value],
             ['name' => AppRoles::USER->value, 'guard_name' => 'api']
         );
     }

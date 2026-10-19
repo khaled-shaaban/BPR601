@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('authority_id')->constrained('authorities');
+            $table->foreignId('area_id')->constrained('areas');
             $table->string('latitude');
             $table->string('longitude');
             $table->string('status')->default(ReportStatus::PENDING->value);
